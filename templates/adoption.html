@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DACT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}" />
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/upload.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/adoption.css') }}">
+  </head>
+<style>
+.img.align-self-stretch{
+	
+  	width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 0px;
+    border-radius: 0%; }
+    .btn-5
+    {
+      margin-top: 50px;
+    }
+    body {
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff; }
+	
+</style>
+  <body style="background-color: #f6f8fd !important">
+
+   
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="{{ url_for('index') }}"><img style="border-radius: 50%; width:21%;"src="/static/images/logo.png">DACT</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('predict') }}" class="nav-link">Recognize Dog</a></li>
+            <li class="nav-item active"><a href="{{ url_for('adopt') }}" class="nav-link">Adoption</a></li>
+            <li class="nav-item "><a href="{{ url_for('diagnose') }}" class="nav-link">Diagnose</a></li>
+            <li class="nav-item"><a href="{{ url_for('petcare') }}" class="nav-link">Care Tips</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+
+<!--<div class="main " >
+  <center>
+  <div class="title" >
+    <h3 style="color: rgb(0, 0, 0);" class="mb-4">Dog Information</h2>
+    <p style="color: rgb(0, 0, 0);">There are 5 species of dog that available in our shelter.</p>
+    <p style="color: rgb(0, 0, 0);">Click the button to see the information of dog.</p>
+  </div></center>-->
+
+  <center>
+    <div class="col-md-10 pl-md-5 py-md-5 " >
+      <div class="heading-section pt-md-5" style="margin-top: -50px;" >
+          <h2 style="color: rgb(0, 0, 0);" class="mb-4">Dog Group</h2>
+          <p style="color: rgb(0, 0, 0);" class="mb-4">There are 10 groups of dog that available in our shelter.<br>Click the button to see the information of dog to make an adoption.</p>
+      </div>
+  </div>
+  <div class="main" style="margin-top: -100px;">
+    
+    <div id="type2" style="margin-top: 50px;">
+      <a href="/adopt/herding">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >HERDING</div>
+       </a>
+      
+      
+      <a href="/adopt/hound">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >HOUND</div>
+      </a>
+      
+      <a href="/adopt/spaniel">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >SPANIEL</div>
+      </a>
+      
+      <a href="/adopt/terrier">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >TERRIER</div>
+      </a>
+    
+      <a href="/adopt/toy">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >TOY</div>
+      </a>
+ <br>
+
+      <a href="/adopt/utility">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >UTILITY</div>
+       </a>
+      
+      
+      <a href="/adopt/gundog">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >GUNDOG</div>
+      </a>
+      
+      <a href="/adopt/working">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >WORKING</div>
+      </a>
+      
+      <a href="/adopt/non-sporting">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >NON-SPORTING</div>
+      </a>
+    
+      <a href="/adopt/sporting">
+        <div class="btn-5" style="color: rgb(255, 255, 255);" >SPORTING</div>
+      </a>
+  </div></center>
+    
+</div>
+
+
+<script src="{{ url_for('static',filename='main.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-migrate-3.0.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.easing.1.3.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.animateNumber.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap-datepicker.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.timepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/scrollax.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/main.js')}}"></script>
+
+<script SameSite="None; Secure" src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+<script>
+  var myLandbot = new Landbot.Livechat({
+    configUrl: 'https://chats.landbot.io/v3/H-1071975-ZGU0JJMGH37N8VJ4/index.json',
+  });
+</script>
+
+</body>
+</html>

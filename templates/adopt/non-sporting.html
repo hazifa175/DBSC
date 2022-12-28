@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DACT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/upload.css') }}">
+  </head>
+<style>
+.img.align-self-stretch{
+	
+  	width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: 0px;
+    border-radius: 0%; }
+
+    *{
+    margin-left: 3px;
+    }
+	
+</style>
+  <body style="background-color: #f6f8fd !important">
+
+   
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a font class="navbar-brand" href="{{ url_for('index') }}"><img style="border-radius: 50%; width:21%;"src="/static/images/logo.png">DACT</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="{{ url_for('predict') }}" class="nav-link">Recognize Dog</a></li>
+            <li class="nav-item active"><a href="{{ url_for('adopt') }}" class="nav-link">Adoption</a></li>
+            <li class="nav-item "><a href="{{ url_for('diagnose') }}" class="nav-link">Diagnose</a></li>
+            <li class="nav-item"><a href="{{ url_for('petcare') }}" class="nav-link">Care Tips</a></li>
+           
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    <main class="t-search" id="content" role="main">
+
+        <center>
+            <div class="col-md-7 pl-md-5 py-md-5 " >
+                <div class="heading-section pt-md-5" style="margin-top: -50px;" >
+                    <h2 style="color: rgb(0, 0, 0);" class="mb-4">Non-Sporting Group Information</h2>
+                    <p style="color: rgb(0, 0, 0);">We provide information for dog breed that available in non-sporting group to be adopted.</p>
+                </div>
+            </div></center>
+        <!-- Results -->
+        <div class="t-search__inner" style="border-radius: 45px;">
+
+       
+
+            <div class="t-search__body">
+    
+    
+    <div class="a-mpu">
+
+        <style>
+            .button_red_small {
+                font-family: Arial;
+                width: 100px;
+                height: 16px;
+                line-height: 15px;
+                background-color: #f53838;
+                color: #ffffff;
+                font-size: 14px;
+                font-weight: bold;
+                padding: 8px 15px 8px 15px;
+                text-align: center;
+                vertical-align: middle;
+                border-radius: 6px;
+            }
+            
+            .button_red_small:hover {
+                background-color: #d41f1f;
+                cursor: pointer;
+            }
+            
+            .button_white_small {
+                display: inline-block;
+                font-family: Arial;
+                width: 70px;
+                height: 22px;
+                line-height: 20px;
+                background-color: #ffffff;
+                color: #666666;
+                font-size: 12px;
+                font-weight: normal;
+                padding: 2px 5px 2px 5px;
+                text-align: center;
+                border-radius: 4px;
+                border: 1px solid #aaaaaa;
+            }
+            
+            .button_white_small:hover {
+                cursor: pointer;
+                background-color: #f0f0f0;
+            }
+            </style>
+
+    </style> 
+    <section style=" align-content: center;">
+     <table style="margin-left:130px;" border="0" width="100%" cellpadding="0" cellspacing="0" align="left">
+
+       <tbody><tr>        <td width="50%">
+        
+        </td></tr>    <tr>        <td align="left" width="50%">
+        <!-- Begin Pet Profile -->
+        <table style="background-color: #ffffff; border-radius: 20px; width:450px;" border="0" cellpadding="10" cellspacing="0" width="400" height="210" align="left" style="border-radius: 10px; background-color:#f8f8f8; border:1px solid #d0d0d0;"><tbody><tr>
+        <td width="200" valign="middle" align="center"><div class="imagecrop_180" style="border-radius:10px;" xclass="IMAGESHADOW"><img style="border-radius: 20px;"  src="/static/images/Non-Sporting/Chow_chow_03624.jpg" class="imagecrop_source" onload="adjustImage(this, 180, 180);" border="0" width="180" height="240" style="top: -30px; left: 0px; opacity: 1;"></a></div></td>
+        <td width="80%">
+        <table width="100%" style="font-size:13px;">
+        <tbody><tr><td align="left"><font style="font-size:14px" color="#333333"><b>Stella</b></font></a></td></tr>
+        <tr><td colspan="2">
+        <font color="#444444">For Adoption, Pahang</font><br><br>
+        <b><font color="#de3131">1 Years, Female</font><br><font color="#a92222">Chow</font></b><br><br>
+        <font color="#444444">Adam | 01991716782 </font><br><br>
+
+        </td></tr>
+        </tbody></table>
+        </td></tr></tbody></table>
+        <br clear="all"><br>
+        <!-- End Pet Profile -->
+
+        </td>        <td align="left" width="50%">
+        <!-- Begin Pet Profile -->
+        <table style="background-color: #ffffff; border-radius: 20px; width:450px;" border="0" cellpadding="10" cellspacing="0" width="400" height="210" align="left" style="border-radius: 10px; background-color:#f8f8f8; border:1px solid #d0d0d0;"><tbody><tr>
+        <td width="200" valign="middle" align="center"><div class="imagecrop_180" style="border-radius:10px;" xclass="IMAGESHADOW"><img style="border-radius: 20px;" src="/static/images/Non-sporting/Dalmatian_04057.jpg" class="imagecrop_source" onload="adjustImage(this, 180, 180);" border="0" width="180" height="240" style="top: -30px; left: 0px; opacity: 1;"></a></div></td>
+        <td width="80%">
+        <table width="100%" style="font-size:13px;">
+        <tbody><tr><td align="left"><font style="font-size:14px" color="#333333"><b>Charlie</b></font></a></td></tr>
+        <tr><td colspan="2">
+        <font color="#444444">For Adoption, Selangor</font><br><br>
+        <b><font color="#de3131">3 Years, Male</font><br><font color="#a92222">Dalmatian</font></b><br><br>
+        <font color="#444444">David | 01132385437 </font><br><br>
+       
+        </td></tr>
+        </tbody></table>
+        </td></tr></tbody></table>
+        <br clear="all"><br>
+        <!-- End Pet Profile -->
+
+
+        </td></tr><tr>        <td align="left" width="50%">
+        <!-- Begin Pet Profile -->
+        <table style="background-color: #ffffff; border-radius: 20px; width:450px;" border="0" cellpadding="10" cellspacing="0" width="400" height="210" align="left" style="border-radius: 10px; background-color:#f8f8f8; border:1px solid #d0d0d0;"><tbody><tr>
+        <td width="200" valign="middle" align="center"><div class="imagecrop_180" style="border-radius:10px;" xclass="IMAGESHADOW"><img style="border-radius: 20px;"  src="/static/images/Non-Sporting/Keeshond_06257.jpg" class="imagecrop_source" onload="adjustImage(this, 180, 180);" border="0" width="180" height="240" style="top: -30px; left: 0px; opacity: 1;"></a></div></td>
+        <td width="80%">
+        <table width="100%" style="font-size:13px;">
+        <tbody><tr><td align="left"><font style="font-size:14px" color="#333333"><b>Fiona</b></font></a></td></tr>
+        <tr><td colspan="2">
+        <font color="#444444">For Adoption, Kedah</font><br><br>
+        <b><font color="#de3131">9 Months, Female</font><br><font color="#a92222">Keeshond</font></b><br><br>
+        <font color="#777777">Nieda</font></a><font color="#777777"> | 0118814852 </font>
+
+        </td></tr>
+        </tbody></table>
+        </td></tr></tbody></table>
+        <br clear="all"><br>
+        <!-- End Pet Profile -->
+
+
+        </td></tr>    </tbody></table>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-migrate-3.0.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.easing.1.3.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.animateNumber.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap-datepicker.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.timepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/scrollax.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/main.js')}}"></script>
+
+<script SameSite="None; Secure" src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+<script>
+  var myLandbot = new Landbot.Livechat({
+    configUrl: 'https://chats.landbot.io/v3/H-1071975-ZGU0JJMGH37N8VJ4/index.json',
+  });
+</script>
+
+</body></html>

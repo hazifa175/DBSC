@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Dog Breed Identification Dataset">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/models/Dog Breed Identification Dataset/test.zip!/" />
+      <root url="jar://$PROJECT_DIR$/models/Dog Breed Identification Dataset/train.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

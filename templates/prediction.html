@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>DACT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}" />
+  </head>
+  <style>
+    .button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #00bd56;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 0px;
+      width: 170px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+      height: 60px;
+    }
+    
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+    
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    
+    .button:hover span {
+      padding-right: 25px;
+    }
+    
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+    </style>
+  <body style="background-color: #f6f8fd;">
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="{{ url_for('index') }}"><img style="border-radius: 50%; width:21%;"src="/static/images/logo.png">DACT</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="fa fa-bars"></span> Menu
+    </button>
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item "><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+        <li class="nav-item active"><a href="{{ url_for('predict') }}" class="nav-link">Recognize Dog</a></li>
+        <li class="nav-item"><a href="{{ url_for('adopt') }}" class="nav-link">Adoption</a></li>
+        <li class="nav-item "><a href="{{ url_for('diagnose') }}" class="nav-link">Diagnose</a></li>
+        <li class="nav-item"><a href="{{ url_for('petcare') }}" class="nav-link">Care Tips</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- END nav -->
+
+<div class="main">
+  
+  <center>
+    <div class="col-md-15 pl-md-5 py-md-5 " >
+      <div class="heading-section pt-md-5" style="margin-top: -50px;" >
+          <h2 style="color: rgb(0, 0, 0);" class="mb-4">Dog Breed Recognition</h2>
+          <p style="color: rgb(0, 0, 0);">Recognize your dog breed by uploading dog image using our system.</p>
+      </div>
+  </div>
+  </center>
+
+  <div class="panel">
+    <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+    <label for="file-upload" id="file-drag" class="upload-box">
+      <div id="upload-caption">Drop image here or click to select</div>
+      <img id="image-preview" class="hidden" />
+    </label>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <input type="button" value="Submit" class="button" onclick="submitImage();" />
+    <input type="button" value="Clear" class="button" onclick="clearImage();" />
+  </div>
+  
+  <div id="image-box">
+    <img id="image-display" />
+    <div id="pred-result" class="hidden"></div>
+    <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+</div>
+<div id="link-instruction">
+</div>
+
+</body>
+
+<footer>
+  <script>
+    
+ </script>
+<script src="{{ url_for('static',filename='main.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-migrate-3.0.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.easing.1.3.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.animateNumber.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/scrollax.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/main.js')}}"></script>
+
+<script SameSite="None; Secure" src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+<script>
+  var myLandbot = new Landbot.Livechat({
+    configUrl: 'https://chats.landbot.io/v3/H-1071975-ZGU0JJMGH37N8VJ4/index.json',
+  });
+</script>
+
+</footer>
+</html>

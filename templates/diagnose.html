@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>
+        DACT - diagnose
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <style type="text/css">
+      body{
+        font-family: "Montserrat", Arial, sans-serif;
+        background-color: white;
+      }
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none; 
+  margin-top: -26px;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem; }
+  .nav-link:hover, .nav-link:focus {
+    text-decoration: none; }
+  .nav-link.disabled {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default; }
+
+.nav-tabs {
+  border-bottom: 1px solid #dee2e6; }
+  .nav-tabs .nav-item {
+    margin-bottom: -1px; }
+  .nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem; }
+    .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+      border-color: #e9ecef #e9ecef #dee2e6; }
+    .nav-tabs .nav-link.disabled {
+      color: #6c757d;
+      background-color: transparent;
+      border-color: transparent; }
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff; }
+  .nav-tabs .dropdown-menu {
+    margin-top: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; }
+
+.nav-pills .nav-link {
+  border-radius: 0.25rem; }
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #007bff; }
+
+.nav-fill .nav-item {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: center; }
+
+.nav-justified .nav-item {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: center; }
+
+.tab-content > .tab-pane {
+  display: none; }
+
+.tab-content > .active {
+  display: block; }
+
+.navbar {
+
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0.5rem 1rem; }
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap; }
+  .navbar-brand:hover, .navbar-brand:focus {
+    text-decoration: none; }
+
+.navbar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none; }
+  .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0; }
+  .navbar-nav .dropdown-menu {
+    position: static;
+    float: none; }
+
+.navbar-text {
+  display: inline-block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem; }
+
+.navbar-collapse {
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem; }
+  .navbar-toggler:hover, .navbar-toggler:focus {
+    text-decoration: none; }
+  .navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer; }
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  content: "";
+  background: no-repeat center center;
+  background-size: 100% 100%; }
+
+@media (max-width: 575.98px) {
+  .navbar-expand-sm > .container,
+  .navbar-expand-sm > .container-fluid {
+    padding-right: 0;
+    padding-left: 0; } }
+
+@media (min-width: 576px) {
+  .navbar-expand-sm {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+    .navbar-expand-sm .navbar-nav {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row; }
+      .navbar-expand-sm .navbar-nav .dropdown-menu {
+        position: absolute; }
+      .navbar-expand-sm .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem; }
+    .navbar-expand-sm > .container,
+    .navbar-expand-sm > .container-fluid {
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
+    .navbar-expand-sm .navbar-collapse {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto; }
+    .navbar-expand-sm .navbar-toggler {
+      display: none; } }
+
+@media (max-width: 767.98px) {
+  .navbar-expand-md > .container,
+  .navbar-expand-md > .container-fluid {
+    padding-right: 0;
+    padding-left: 0; } }
+
+@media (min-width: 768px) {
+  .navbar-expand-md {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+    .navbar-expand-md .navbar-nav {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row; }
+      .navbar-expand-md .navbar-nav .dropdown-menu {
+        position: absolute; }
+      .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem; }
+    .navbar-expand-md > .container,
+    .navbar-expand-md > .container-fluid {
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
+    .navbar-expand-md .navbar-collapse {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto; }
+    .navbar-expand-md .navbar-toggler {
+      display: none; } }
+
+@media (max-width: 991.98px) {
+  .navbar-expand-lg > .container,
+  .navbar-expand-lg > .container-fluid {
+    padding-right: 0;
+    padding-left: 0; } }
+
+@media (min-width: 992px) {
+  .navbar-expand-lg {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+    .navbar-expand-lg .navbar-nav {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row; }
+      .navbar-expand-lg .navbar-nav .dropdown-menu {
+        position: absolute; }
+      .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem; }
+    .navbar-expand-lg > .container,
+    .navbar-expand-lg > .container-fluid {
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
+    .navbar-expand-lg .navbar-collapse {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto; }
+    .navbar-expand-lg .navbar-toggler {
+      display: none; } }
+
+@media (max-width: 1199.98px) {
+  .navbar-expand-xl > .container,
+  .navbar-expand-xl > .container-fluid {
+    padding-right: 0;
+    padding-left: 0; } }
+
+@media (min-width: 1200px) {
+  .navbar-expand-xl {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start; }
+    .navbar-expand-xl .navbar-nav {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row; }
+      .navbar-expand-xl .navbar-nav .dropdown-menu {
+        position: absolute; }
+      .navbar-expand-xl .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem; }
+    .navbar-expand-xl > .container,
+    .navbar-expand-xl > .container-fluid {
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
+    .navbar-expand-xl .navbar-collapse {
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto; }
+    .navbar-expand-xl .navbar-toggler {
+      display: none; } }
+
+.navbar-expand {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+  .navbar-expand > .container,
+  .navbar-expand > .container-fluid {
+    padding-right: 0;
+    padding-left: 0; }
+  .navbar-expand .navbar-nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row; }
+    .navbar-expand .navbar-nav .dropdown-menu {
+      position: absolute; }
+    .navbar-expand .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem; }
+  .navbar-expand > .container,
+  .navbar-expand > .container-fluid {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; }
+  .navbar-expand .navbar-collapse {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto; }
+  .navbar-expand .navbar-toggler {
+    display: none; }
+
+.navbar-light .navbar-brand {
+  color: rgba(0, 0, 0, 0.9); }
+  .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
+    color: rgba(0, 0, 0, 0.9); }
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.5); }
+  .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: rgba(0, 0, 0, 0.7); }
+  .navbar-light .navbar-nav .nav-link.disabled {
+    color: rgba(0, 0, 0, 0.3); }
+
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+  color: rgba(0, 0, 0, 0.9); }
+
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.1); }
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+
+.navbar-light .navbar-text {
+  color: rgba(0, 0, 0, 0.5); }
+  .navbar-light .navbar-text a {
+    color: rgba(0, 0, 0, 0.9); }
+    .navbar-light .navbar-text a:hover, .navbar-light .navbar-text a:focus {
+      color: rgba(0, 0, 0, 0.9); }
+
+.navbar-dark .navbar-brand {
+  color: #fff; }
+  .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+    color: #fff; }
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.5); }
+  .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
+    color: rgba(255, 255, 255, 0.75); }
+  .navbar-dark .navbar-nav .nav-link.disabled {
+    color: rgba(255, 255, 255, 0.25); }
+
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #fff; }
+
+.navbar-dark .navbar-toggler {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.1); }
+
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+
+.navbar-dark .navbar-text {
+  color: rgba(255, 255, 255, 0.5); }
+  .navbar-dark .navbar-text a {
+    color: #fff; }
+    .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
+      color: #fff; }
+
+
+      .ftco-navbar-light {
+  background: #fff !important;
+  z-index: 3;
+  padding: 0;
+  -webkit-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+  box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34); }
+  @media (max-width: 991.98px) {
+    .ftco-navbar-light {
+      background: #fff;
+      position: relative;
+      top: 0;
+      padding: 10px 15px; } }
+  .ftco-navbar-light .navbar-brand {
+        color: #000000;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 1; }
+    .ftco-navbar-light .navbar-brand span {
+      color: #00bd56; }
+    .ftco-navbar-light .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
+      color: #000000; }
+    @media (max-width: 767.98px) {
+      .ftco-navbar-light .navbar-brand {
+        margin: 10px 0; } }
+  @media (max-width: 991.98px) {
+    .ftco-navbar-light .navbar-nav {
+      padding-bottom: 10px; } }
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+    font-size: 14px;
+    padding-top: 2.3rem;
+    padding-bottom: 2.3rem;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-weight: 700;
+    color: #000000;
+    position: relative;
+    text-transform: uppercase;
+    opacity: 1 !important; }
+    .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0px;
+      left: 0;
+      background-color: #00bd56;
+      visibility: hidden;
+      -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+      transform: scaleX(0);
+      -webkit-transition: all 0.1s ease-in-out 0s;
+      -o-transition: all 0.1s ease-in-out 0s;
+      transition: all 0.1s ease-in-out 0s;
+      z-index: -1; }
+    .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
+      color: #00bd56; }
+      .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover:before {
+        visibility: visible;
+        background-color: #00bd56;
+        -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+        transform: scaleX(1); }
+    @media (max-width: 991.98px) {
+      .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: .9rem;
+        padding-bottom: .9rem; }
+        .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
+          color: #fff; } }
+    @media (max-width: 767.98px) {
+      .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05); } }
+  .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
+    border: none;
+    background: #fff;
+    -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+    -moz-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+    box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
+    border-radius: 4px; }
+    .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item {
+      font-size: 12px;
+      color: #000000; }
+      .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item:hover, .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu .dropdown-item:focus {
+        background: #00bd56;
+        color: #fff; }
+    @media (max-width: 991.98px) {
+      .ftco-navbar-light .navbar-nav > .nav-item .dropdown-menu {
+        display: block !important;
+        background: #fff;
+        -webkit-box-shadow: none;
+        box-shadow: none; } }
+  .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
+    color: #fff;
+    background: #00bd56;
+    border-radius: 0px; }
+    @media (max-width: 767.98px) {
+      .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
+        padding-left: 15px;
+        padding-right: 15px; } }
+    @media (max-width: 991.98px) {
+      .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
+        color: #fff;
+        background: #00bd56;
+        border-radius: 4px; } }
+  .ftco-navbar-light .navbar-nav > .nav-item.active > a {
+    color: #00bd56; }
+    .ftco-navbar-light .navbar-nav > .nav-item.active > a:before {
+      visibility: visible;
+      background-color: #00bd56;
+      -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+      transform: scaleX(1); }
+    @media (max-width: 991.98px) {
+      .ftco-navbar-light .navbar-nav > .nav-item.active > a {
+        color: #000000; }
+        .ftco-navbar-light .navbar-nav > .nav-item.active > a:before {
+          display: none; } }
+  .ftco-navbar-light .navbar-toggler {
+    border: none;
+    color: rgba(0, 0, 0, 0.5) !important;
+    cursor: pointer;
+    padding-right: 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: .1em; }
+    .ftco-navbar-light .navbar-toggler:focus {
+      outline: none !important; }
+
+ body{
+        background-color: #f6f8fd !important
+      }
+      .diagnosedog{  
+        margin-top: -10px;
+        margin-left: 80px;
+        shape-outside: border-box;
+        border-radius: 30px;
+        width: 600px;
+
+      }
+      .question{
+       width: 100%;
+       background-color: white;
+        color: black;
+        padding: 0;
+        text-transform: capitalize;
+        letter-spacing: 0;
+        border-radius: 0 !important;
+        margin-bottom: 10px;
+        border-radius: 40px !important;
+        -webkit-box-shadow: 0px 2px 8px -4px rgb(0 0 0 / 21%) !important;
+        -moz-box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.21) !important;
+        box-shadow: 0px 2px 8px -4px rgb(0 0 0 / 21%) !important;
+    }
+    .question p{
+      margin-left: 40px;
+      text-transform: none;
+    }
+
+     input[type="radio"]{
+      margin-left: 50px;
+    }
+
+    .dogimage{
+      margin-top: 10px;
+      width: 500px;
+      background-color: white;
+      height: 480px;
+      position: fixed;
+      margin-left: 800px;
+  
+      border-radius: 40px !important;
+      -webkit-box-shadow: 0px 2px 8px -4px rgb(0 0 0 / 21%) !important;
+        -moz-box-shadow: 0px 2px 8px -4px rgba(0, 0, 0, 0.21) !important;
+        box-shadow: 0px 2px 8px -4px rgb(0 0 0 / 21%) !important;
+      }
+
+      .modal {
+         z-index: 1;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    }
+    
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 1rem 1.5rem;
+        /*width: 85rem;*/
+        border-radius: 0.5rem;
+    }
+    .close-button {
+        float: right;
+        width: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        background-color: lightgray;
+    }
+    .close-button:hover {
+        background-color: darkgray;
+    }
+    .show-modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+    .aside{
+      width: 60%;
+      padding-left: 0px;
+      margin-left: -15px;
+      float: right;
+      font-size:12px;
+    }
+
+
+ </style>
+    
+    
+    
+</head>
+  
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="margin-top: -7px;">
+    
+      <div class="navbar-brand" style="text-decoration: none; margin-left: 200px; margin-top: -35px;" href="index.html">
+      	<img style="border-radius: 50%; width:26%;"src="/static/images/logo.png">&nbsp;<div style="margin-top: -60px; margin-left:78px; ">DACT</div>
+      </div>
+     
+       <div style="margin-left:195px;">
+        <ul class="navbar-nav ml-auto" >
+          <li class="nav-item"><a style="text-decoration: none; margin-top: -8px;" href="{{ url_for('index') }}"class="nav-link">Home</a></li>
+          <li class="nav-item"><a style="text-decoration: none; margin-top: -8px;" href="{{ url_for('predict') }}"class="nav-link">Recognize dog</a></li>
+          <li class="nav-item"><a style="text-decoration: none; margin-top: -8px;" href="{{ url_for('adopt') }}" class="nav-link">Adoption</a></li>
+          <li class="nav-item active"><a style="text-decoration: none; margin-top: -8px;" href="{{ url_for('diagnose') }}"class="nav-link">Diagnose</a></li>
+          <li class="nav-item"><a style="text-decoration: none; margin-top: -8px;"  href="{{ url_for('petcare') }}" class="nav-link">Care Tips</a></li>
+        </ul>
+      </div>
+   
+  </nav>
+    <!-- END nav -->
+
+      <section class="dogimage"><br>
+      <center> <h2><b>Diagnose Dog</b></h2>
+        <p style="width: 400px;">We will help you diagnose your dog, give disease details, advices and tips to treat your dog. You need to answer all 21 questions given to let us diagnose your dog and see the possiblity for the dog to get the disease.</p></center> 
+        <img style="margin-left: 80px; margin-top: -15px;width: 70%;" src="https://uploads-ssl.webflow.com/5742366615d374a826153247/5aa81f977fdcebf57339ec43_Medical-Dogs-400.jpg">
+      </section>
+    <section class="diagnosedog">
+      <form>
+      <br><br>
+      <div class="question"><br>
+        <p><b>Question 1</b><br>What is your dog's appetite?</p>
+            <input type="radio" name ="appetite" value="normal" id="myInput"/>
+            <label for="normal">Normal</label><br>
+            <input type="radio" name ="appetite" value="light" id="myInput"/>
+            <label for="light">Light</label><br><br>
+      </div>
+      <br>
+
+      <div class="question"><br>
+      <p><b>Question 2</b><br>Does your dog have burning or redness?</p>
+          <input type="radio" name="burning" value="no" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="burning" value="yes" id="myInput"/>
+          <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+      <div class="question"><br>
+      <p><b>Question 3</b><br>Is there a limp on your dog?</p>
+              <input type="radio" name="limp" value="no" id="myInput"/>
+              <label for="no">No</label><br>
+              <input type="radio" name="limp" value="yes" id="myInput"/>
+              <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+      <div class="question"><br>
+      <p><b>Question 4</b><br>What is your dog's behaviour?</p>
+            <input type="radio" name="behaviour" value="normal" id="myInput"/>
+            <label for="normal">&nbsp;&nbsp;Normal</label>
+            <input type="radio" name="behaviour"  value="restless"  style="margin-left: 67px;" id="myInput"/>
+            <label for="restless">&nbsp;&nbsp;Restless</label><br>
+            <input type="radio" name="behaviour" value="nervous" id="myInput"/>
+            <label for="nervous">&nbsp;&nbsp;Nervous</label>&nbsp;&nbsp;
+            <input type="radio" name="behaviour" value="decayed" style="margin-left: 52px;" id="myInput"/>
+            <label for="decayed">&nbsp;&nbsp;Decayed</label><br>
+            <input type="radio" name="behaviour" value="apathetic" id="myInput"/>
+            <label for="apathetic">&nbsp;&nbsp;Apathetic</label><br><br>
+      </div>
+      <br>
+
+      <div class="question"><br>
+        <p><b>Question 5</b><br>Does the dog has seizures?</p>
+            <input type="radio" name="seizures" value="no" id="myInput"/>
+            <label for="no">No</label><br>
+            <input type="radio" name="seizures" value="yes" id="myInput"/>
+            <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+      <div class="question"><br>
+        <p><b>Question 6</b><br>Does your dog look weak?</p>
+          <input type="radio" name="weak" value="no" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="weak" value="yes" id="myInput"/>
+          <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+      <div class="question"><br>
+        <p><b>Question 7</b><br>Does your dog look in pain?</p>
+            <input type="radio" name="pain" value="no" id="myInput"/>
+            <label for="no">No</label><br>
+            <input type="radio" name="pain" value="abdominal" id="myInput"/>
+            <label for="abdominal">Abdominal</label><br>
+            <input type="radio" name="pain" value="on the limbs" id="myInput"/>
+            <label for="on the limbs">On the limbs</label><br><br>
+      </div>
+      <br>
+
+      <div class="question"><br>
+        <p><b>Question 8</b><br>Does your dog have sneezing?</p>
+          <input type="radio" name="sneezing" value="no" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="sneezing" value="yes" id="myInput"/>
+          <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+
+      <div class="question"><br>
+        <p><b>Question 9</b><br>Does your dog have a fever?</p>
+          <input type="radio" name="fever" value="no" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="fever" value="low" style="margin-left: 51px;" id="myInput"/>
+          <label for="low">Low</label><br>
+          <input type="radio" name="fever"value="high" style="margin-left: 59px;" id="myInput"/>
+          <label for="low">High</label><br><br>
+      </div>
+      <br>
+
+
+      <div class="question"><br>
+      <p><b>Question 10</b><br>What is the state of the feces?</p>
+          <input type="radio" name="feces" value="normal" style="margin-left: 55px;" id="myInput"/>
+          <label for="normal">&nbsp;&nbsp;Normal</label><br>
+          <input type="radio" name="feces" value="with parasites"style="margin-left: 55px;" id="myInput"/>
+          <label for="With parasites">&nbsp;&nbsp;with parasites</label><br><br>
+      </div><br>
+
+      <div class="question"><br>
+        <p><b>Question 11</b><br>Does your dog have a wound?</p>
+          <input type="radio" name="wound" value="no" style="margin-left: 50px;" id="myInput"/>
+          <label for="no">&nbsp;&nbsp;No</label><br>
+          <input type="radio" name="wound" value="yes"  id="myInput"/>
+          <label for="yes">&nbsp;&nbsp;Yes</label><br><br>
+      </div><br>
+
+      <div class="question"><br>
+        <p><b>Question 12</b><br>Does your dog pant?</p>
+          <input type="radio" name="panting" value="no" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="panting" value="yes" id="myInput"/>
+          <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+      <div class="question"><br>
+        <p><b>Question 13</b><br>How's your dog barking?</p>
+          <input type="radio" name="barking" value="normal" id="myInput"/>
+          <label for="normal">Normal</label><br>
+          <input type="radio" name="barking" value="more than normal" id="myInput"/>
+          <label for="more than normal">More than normal</label><br><br>
+      </div>
+      <br>
+
+
+    <div class="question"><br>
+        <p><b>Question 14</b><br>What is the state of dog's ears?</p>
+          <input type="radio" name="ears" value="normal" id="myInput"/>
+          <label for="normal">Normal</label><br>
+          <input type="radio" name="ears" value="with temperature" id="myInput"/>
+          <label for="with temperature">With temperature</label><br>
+          <input type="radio" name="ears" value="with scent" id="myInput"/>
+          <label for="with scent">With scent</label><br><br>
+      </div>
+      <br>
+
+
+    <div class="question"><br>
+      <p><b>Question 15</b><br>What is the state of dog's eyes?</p>
+          <input type="radio" name="eyes" value="normal" id="myInput"/>
+          <label for="normal">Normal</label><br>
+          <input type="radio" name="eyes" value="with tears" id="myInput"/>
+          <label for="with tears">With tears</label><br>
+          <input type="radio" name="eyes" value="with pus"style="margin-left: 58px;" id="myInput"/>
+          <label for="with pus">With pus</label><br><br>
+      </div>
+      <br>
+
+
+    <div class="question"><br>
+      <p><b>Question 16</b><br>Is your dog paralyzed?</p>
+      <input type="radio" name="paralysis" value="no"style="margin-left: 58px;" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="paralysis" value="yes" id="myInput"/>
+          <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+
+    <div class="question"><br>
+      <p><b>Question 17</b><br>What is the state of the fur?</p>
+          <input type="radio" name="fur" value="normal" id="myInput"/>
+          <label for="normal">&nbsp;&nbsp;Normal</label><br>
+          <input type="radio" name="fur" value="with insects" id="myInput"/>
+          <label for="with insects">&nbsp;&nbsp;With insects</label><br>
+          <input type="radio" name="fur" value="with slight falls" id="myInput"/>
+          <label for="with slight falls">&nbsp;&nbsp;With slight falls</label><br><br>
+    </div>
+      <br>
+
+
+    <div class="question"><br>
+      <p><b>Question 18</b><br>Does your dog look itchy? </p>
+          <input type="radio" name="itch" value="no" id="myInput"/>
+          <label for="no">&nbsp;&nbsp;No</label><br>
+          <input type="radio" name="itch" value="intense" id="myInput"/>
+           <label for="intense">Intense</label><br><br>
+    </div>
+      <br>
+
+
+    <div class="question"><br>
+      <p><b>Question 19</b><br>Does your dog bleed?</p>
+          <input type="radio" name="bleeding" value="no" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="bleeding" value="yes" id="myInput"/>
+          <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+
+    <div class="question"><br>
+        <p><b>Question 20</b><br>Does your dog have a cough?</p>
+          <input type="radio" name ="cough" value="no" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="cough" value="yes" id="myInput"/>
+          <label for="yes">Yes</label><br><br>
+      </div>
+      <br>
+
+
+    <div class="question"><br>
+    <p><b>Question 21</b><br>Does your dog vomit?</p>
+          <input type="radio" name="vomit" value="no" id="myInput"/>
+          <label for="no">No</label><br>
+          <input type="radio" name="vomit" value="yes" id="myInput"/>
+          <label for="yes">Yes</label><br><br>
+    </div>
+      <br>
+    </form>   
+
+
+      <center><button class="trigger">Submit</button></center>
+      <div class="modal"  id="myModal" data-toggle="modal">
+          <div class="modal-content">
+              <!--<span class="close-button" class="close" data-dismiss="modal">&times;</span>-->
+                <div id="result">
+                  <h4>Result</h4>
+                  <p style="font-size: 12px;">We can diagnose seven diseases in your dog. Based on your answers, here are the posibility(%) your dog can get these diseases .</p>
+                </div>
+                  <div id="highestresult">
+                  <h4>Highest possiblity</h4>
+                  <p style="font-size: 12px;">This is the highest likely disease your dog can get, so here we will give you tips on how to treat the disease.</p>
+                </div>
+  
+          </div>
+      </div>
+  
+      <br>
+
+        
+</section>
+        
+<script type="text/javascript">
+
+  //facts
+  const fleas = ['normal','yes','no','restless','no','no','no','no','no','normal','no','no','normal','normal','normal','no','with insects','intense','no','no','no']
+  const tick = ['normal','yes','no','restless','no','yes','no','no','no','normal','yes','no','normal','normal','normal','yes','with insects','intense','yes','no','no']
+  const ototis  = ['normal','yes','no','restless','no','no','no','no','low','normal','no','no','normal','with scent','normal','no','normal','intense','no','no','no']
+  const scabies  = ['light','yes','no','decayed','no','yes','no','no','no','normal','yes','no','normal','normal','normal','no','with slight falls','intense','yes','no','no']
+  const rage  = ['normal','no','no','nervous','yes','no','on the limbs','no','low','normal','no','no','normal','normal','normal','yes','normal','no','no','no','no']
+  const distemper  = ['normal', 'yes', 'no', 'nervous', 'yes', 'yes', 'abdominal', 'yes', 'high', 'normal', 'no', 'yes', 'normal', 'with temperature', 'with pus', 'yes', 'normal', 'no', 'no', 'yes', 'yes']
+  const osteoarthritis = ['normal', 'no', 'yes', 'normal', 'no', 'no', 'on the limbs', 'no', 'no', 'normal', 'no', 'yes', 'more than normal', 'normal', 'normal', 'no', 'normal', 'no', 'no', 'no', 'no']
+
+
+
+// Knowledge Engine
+let names = ["appetite","burning","limp","behaviour","seizures","weak","pain","sneezing","fever","feces","wound","panting","barking","ears","eyes","paralysis","fur","itch","bleeding","cough","vomit"]
+let results = [];
+
+document.querySelector("button").addEventListener("click", function(event){
+  results = names.map(function(el){
+    return document.querySelector("input[name='" + el + "']:checked").value;
+  });
+  
+ // console.log(results);
+
+
+  //calculate confidence level of fleas
+  let result_fleas = 0;
+  let rfleas = 0;
+             
+      for(let k = 0; k < results.length; k++) {
+        if(fleas[k] == results[k]) {
+          rfleas = 1+rfleas;
+        
+        }
+        else
+        {rfleas = 0+rfleas;}
+      }
+      result_fleas=(rfleas/results.length)*100;
+     //console.log(result_fleas);
+     
+
+     
+
+
+//calculate confidence level of tick
+  let result_tick = 0;
+  let rtick = 0;
+             
+      for(let k = 0; k < results.length; k++) {
+        if( tick[k] == results[k]) {
+          rtick = 1+rtick;
+        }
+        else
+        {rtick = 0+rtick}
+      }
+      result_tick=(rtick/results.length)*100;
+     //console.log(result_tick);
+       
+       
+//calculate confidence level  of Ototis     
+  let result_ototis  = 0;
+  let rototis  = 0;
+             
+      for(let k = 0; k < results.length; k++) {
+        if( ototis[k] == results[k]) {
+          rototis  = 1 + rototis ;
+        }
+        else
+        {rototis = 0 + rototis}
+      }
+      result_ototis=(rototis/results.length)*100;
+     //console.log(result_ototis);
+
+
+//calculate confidence level  scabies
+  let result_scabies  = 0;
+  let rscabies  = 0;
+             
+      for(let k = 0; k < results.length; k++) {
+        if(scabies[k] == results[k]) {
+          rscabies  = 1 + rscabies ;
+        }
+        else
+        {rscabies = 0 + rscabies}
+      }
+      result_scabies=(rscabies/results.length)*100;
+     //console.log(result_scabies);
+
+
+//calculate confidence level  rage
+  let result_rage  = 0;
+  let rrage  = 0;
+             
+      for(let k = 0; k < results.length; k++) {
+        if(rage[k] == results[k]) {
+          rrage  = 1 + rrage ;
+        }
+        else
+        {rrage = 0 + rrage}
+      }
+      result_rage=(rrage/results.length)*100;
+    // console.log(result_rage);
+
+
+//calculate confidence level  distemper     
+  let result_distemper  = 0;
+  let rdistemper  = 0;
+             
+      for(let k = 0; k < results.length; k++) {
+        if(distemper[k] == results[k]) {
+          rdistemper  = 1 + rdistemper ;
+        }
+        else
+        {rdistemper = 0 + rdistemper}
+      }
+      result_distemper=(rdistemper/results.length)*100;
+    // console.log(result_distemper);
+        
+
+     
+
+
+ //calculate confidence level  osteoarthritis 
+  let result_osteoarthritis = 0;
+  let rosteoarthritis = 0;
+             
+      for(let k = 0; k < results.length; k++) {
+        if(osteoarthritis[k] == results[k]) {
+          rosteoarthritis  = 1 + rosteoarthritis ;
+        }
+        else
+        {rosteoarthritis = 0 + rosteoarthritis}
+      }
+      result_osteoarthritis=(rosteoarthritis/results.length)*100;
+     //console.log(result_osteoarthritis);
+
+    
+    final_result = Math.max(result_fleas,result_tick,result_ototis,result_scabies,result_rage,result_distemper,result_osteoarthritis);
+    //console.log(final_result);
+   
+
+
+    let x="";
+    let y="";
+    let c="";
+    display_fleas="<center><b><p style='color:#00bd56'> Fleas : "+ result_fleas.toFixed(2)+"%</p></b> <img style='height: 110px;border-radius: 5px;' src='https://www.msdvetmanual.com//-/media/manual/veterinary/images/c/t/e/ctenocephalides_felis_flea_infested_cat_high.jpg?thn=0&sc_lang=en'><div class='aside'><br>Usually, a dog with fleas on it will have burning or redness on the body, look restless, have insects on the fur with intense itch. Out of 21 symptoms, your dog has "+rfleas+" symptoms that could lead to the fleas disease. <a href='{{ url_for('fleas') }}'>Click here</a> to get tip to treat Fleas.</div>";
+    display_ticks="<center><b><p style='color:#00bd56'> Ticks : "+ result_tick.toFixed(2)+"%</p></b> <img style='height: 110px;border-radius: 5px;' src='https://www.westernexterminator.com/blog/wp-content/uploads/2018/04/ThinkstockPhotos-545371420.jpg'><div class='aside'><br>Usually, a dog with a tick will have burning or redness, look weak, have wounds, paralysis, and have insects on fur with intense itch and bleeding. Out of 21 symptoms your dog has "+rtick+" symptoms that could lead to the ticks disease. <a href='{{ url_for('tick') }}'>Click here</a> to get tip to treat Ticks."; 
+    display_otitis="<center><b><p style='color:#00bd56'> Otitis : "+ result_ototis.toFixed(2)+"%</p></b> <img style='height: 110px;border-radius: 5px;' src='https://criticalcaredvm.com/wp-content/uploads/2015/06/DSC01868-1024x768.jpg'><div class='aside'><br>Usually, a dog with otitis will have burning or redness, look restless, have a low fever, have a scent on ears with intense itch. Out of 21 symptoms your dog has "+rototis+" symptoms that could lead to the otitis disease. <a href='{{ url_for('otitis') }}'>Click here</a> to get tip to treat Otitis."; 
+    display_scabies="<center><b><p style='color:#00bd56'> Scabies : "+ result_scabies.toFixed(2)+"%</p></b> <img style='height: 110px;border-radius: 5px;' src='https://weartv.com/resources/media/92a559ab-f2e4-419b-83cc-ef3c53dbeb8a-large1x1_MANGE.jpg?1467667104598'><div class='aside'><br>Usually, dogs with scabies on it will have burning or redness, slight appetite, look decayed and weak, have wound on the body, fall fur with an intense itch, and bleeding. Out of 21 symptoms your dog has "+rscabies+" symptoms that could lead to the scabies disease. <a href='{{ url_for('scabies') }}'>Click here</a> to get tip to treat Scabies."; 
+    display_rage="<center><b><p style='color:#00bd56'> Rage : "+ result_rage.toFixed(2)+"%</p></b> <img style='height: 110px;border-radius: 5px;' src='https://storage.buzzsprout.com/variants/7srDqSR4PXtN18XAGJHhUAck/60854458c4d1acdf4e1c2f79c4137142d85d78e379bdafbd69bd34c85f5819ad?.jpg'><div class='aside'><br>Usually, a dog with rage looks nervous, has seizures, has pain in the limbs, low fever, and paralysis. Out of 21 symptoms your dog has "+rrage+" symptoms that could lead to the rage disease. <a href='{{ url_for('rage') }}'>Click here</a> to get tip to treat Rage."; 
+    display_distemper="<center><b><p style='color:#00bd56'> Distemper : "+ result_distemper.toFixed(2)+"%</p></b> <img style='height: 110px;border-radius: 5px;' src='https://petairapy.com/wp-content/uploads/2020/06/Nasal-discharge-canine-distemper.jpg'><div class='aside'><br>Usually, a dog with a distemper has burning or redness, looks nervous, seizures, abdominal pain, sneezing, high fever, panting, the temperature on the ear, pus on eyes, paralysis, cough, and vomit. Out of 21 symptoms your dog has "+rdistemper+" symptoms that could lead to the distemper disease. <a href='{{ url_for('distemper') }}'>Click here</a> to get tip to treat Distemper."; 
+    display_osteoarthritis="<center><b><p style='color:#00bd56'> Osteoarthritis : "+ result_osteoarthritis.toFixed(2)+"%</p></b> <img style='height: 110px;border-radius: 5px;' src='https://bbvsh.com/wp-content/uploads/Picture-of-abnormal-hip-conformation-2.jpg'><div class='aside'><br>Usually, a dog with osteoarthritis will have limp, pain on the limb, panting and barking more than usual. Out of 21 symptoms your dog has "+rosteoarthritis+" symptoms that could lead to the osteoarthritis disease. <a href='{{ url_for('osteoarthritis') }}'>Click here</a> to get tip to treat Osteoarthritis."; 
+    
+      if(final_result==result_fleas){
+    
+      let secondmax=[result_tick,result_ototis,result_scabies,result_rage,result_distemper,result_osteoarthritis];
+
+        if(result_fleas==secondmax[0]){display_result=display_fleas+"<br>"+display_ticks;}
+        else if(result_fleas==secondmax[1]){display_result=display_fleas+"<br>"+display_otitis;}
+        else if(result_fleas==secondmax[2]){display_result=display_fleas+"<br>"+display_scabies;}
+        else if(result_fleas==secondmax[3]){display_result=display_fleas+"<br>"+display_rage;}
+        else if(result_fleas==secondmax[4]){display_result=display_fleas+"<br>"+display_distemper;}
+        else if(result_fleas==secondmax[5]){display_result=display_fleas+"<br>"+display_osteoarthritis;}          
+        else
+        {
+          display_result=display_fleas;
+        }
+      
+    }
+    else if(final_result==result_tick){
+      
+      let secondmax=[result_fleas,result_ototis,result_scabies,result_rage,result_distemper,result_osteoarthritis];
+      if(result_tick==secondmax[0]){display_result=display_ticks+"<br>"+display_fleas;}
+      else if(result_tick==secondmax[1]){display_result=display_ticks+"<br>"+display_otitis;}
+      else if(result_tick==secondmax[2]){display_result=display_ticks+"<br>"+display_scabies;}
+      else if(result_tick==secondmax[3]){display_result=display_ticks+"<br>"+display_rage;}
+      else if(result_tick==secondmax[4]){display_result=display_ticks+"<br>"+display_distemper;}
+      else if(result_tick==secondmax[5]){display_result=display_ticks+"<br>"+display_osteoarthritis;}          
+      else
+      {
+        display_result=display_ticks;
+      }
+  
+    }
+
+    else if(final_result==result_ototis)
+    {  
+      let secondmax=[result_tick,result_fleas,result_scabies,result_rage,result_distemper,result_osteoarthritis];
+      if(result_ototis==secondmax[0]){display_result=display_otitis+"<br>"+display_ticks;}
+      else if(result_ototis==secondmax[1]){display_result=display_otitis+"<br>"+display_fleas;}
+      else if(result_ototis==secondmax[2]){display_result=display_otitis+"<br>"+display_scabies;}
+      else if(result_ototis==secondmax[3]){display_result=display_otitis+"<br>"+display_rage;}
+      else if(result_ototis==secondmax[4]){display_result=display_otitis+"<br>"+display_distemper;}
+      else if(result_ototis==secondmax[5]){display_result=display_otitis+"<br>"+display_osteoarthritis;}          
+      else
+      {
+        display_result=display_otitis;
+      }
+    
+    }
+
+    else if(final_result==result_scabies)
+    {
+      
+      let secondmax=[result_tick,result_ototis,result_fleas,result_rage,result_distemper,result_osteoarthritis];
+      if(result_scabies==secondmax[0]){display_result=display_scabies+"<br>"+display_ticks;}
+      else if(result_scabies==secondmax[1]){display_result=display_scabies+"<br>"+display_otitis;}
+      else if(result_scabies==secondmax[2]){display_result=display_scabies+"<br>"+display_fleas;}
+      else if(result_scabies==secondmax[3]){display_result=display_scabies+"<br>"+display_rage;}
+      else if(result_scabies==secondmax[4]){display_result=display_scabies+"<br>"+display_distemper;}
+      else if(result_scabies==secondmax[5]){display_result=display_scabies+"<br>"+display_osteoarthritis;}          
+      else
+      {
+        display_result=display_scabies;
+      }
+    }
+    else if(final_result==result_rage)
+    {
+      
+      let secondmax=[result_tick,result_ototis,result_scabies,result_fleas,result_distemper,result_osteoarthritis];
+      if(result_rage==secondmax[0]){display_result=display_rage+"<br>"+display_ticks;}
+      else if(result_rage==secondmax[1]){display_result=display_rage+"<br>"+display_otitis;}
+      else if(result_rage==secondmax[2]){display_result=display_rage+"<br>"+display_scabies;}
+      else if(result_rage==secondmax[3]){display_result=display_rage+"<br>"+display_fleas;}
+      else if(result_rage==secondmax[4]){display_result=display_rage+"<br>"+display_distemper;}
+      else if(result_rage==secondmax[5]){display_result=display_rage+"<br>"+display_osteoarthritis;}          
+      else
+      {
+        display_result=display_rage;
+      }
+    }
+    else if(final_result==result_distemper)
+    {
+      
+      let secondmax=[result_tick,result_ototis,result_scabies,result_rage,result_fleas,result_osteoarthritis];
+      if(result_distemper==secondmax[0]){display_result=display_distemper+"<br>"+display_ticks;}
+      else if(result_distemper==secondmax[1]){display_result=display_distemper+"<br>"+display_otitis;}
+      else if(result_distemper==secondmax[2]){display_result=display_distemper+"<br>"+display_scabies;}
+      else if(result_distemper==secondmax[3]){display_result=display_distemper+"<br>"+display_rage;}
+      else if(result_distemper==secondmax[4]){display_result=display_distemper+"<br>"+display_fleas;}
+      else if(result_distemper==secondmax[5]){display_result=display_distemper+"<br>"+display_osteoarthritis;}          
+      else
+      {
+        display_result=display_distemper;
+      }
+  }
+    else if(final_result==result_osteoarthritis)
+    {
+      
+      let secondmax=[result_tick,result_ototis,result_scabies,result_rage,result_distemper,result_fleas];
+      if(result_osteoarthritis==secondmax[0]){display_result=display_osteoarthritis+"<br>"+display_ticks;}
+      else if(result_osteoarthritis==secondmax[1]){display_result=display_osteoarthritis+"<br>"+display_otitis;}
+      else if(result_osteoarthritis==secondmax[2]){display_result=display_osteoarthritis+"<br>"+display_scabies;}
+      else if(result_osteoarthritis==secondmax[3]){display_result=display_osteoarthritis+"<br>"+display_rage;}
+      else if(result_osteoarthritis==secondmax[4]){display_result=display_osteoarthritis+"<br>"+display_distemper;}
+      else if(result_osteoarthritis==secondmax[5]){display_result=display_osteoarthritis+"<br>"+display_fleas;}          
+      else
+      {
+        display_result=display_osteoarthritis;
+      }
+      
+    }
+
+     document.getElementById("result").innerHTML 
+              += "<table style='width:100%; font-size: 12px;'><tr><td><b>Fleas:</b> "+result_fleas.toFixed(2)+"</td><td>&emsp;<b>Ticks :</b> " + result_tick.toFixed(2) +"</td></tr><tr><td><b>Otitis :</b> " + result_ototis.toFixed(2)+"</td><td>&emsp;<b>Scabies :</b> " + result_scabies.toFixed(2) 
+      +" </td></tr><tr><td><b>Rage :</b> " + result_rage.toFixed(2) +"</td><td>&emsp;<b>Distemper :</b> " + result_distemper.toFixed(2)+"</td></tr><tr><td><b>Osteoarthritis :</b> " + result_osteoarthritis.toFixed(2)+"</td></tr></table>";
+      /*"Fleas : " + result_fleas.toFixed(2)
+              + "Ticks : " + result_tick.toFixed(2) +"<br>"
+              + "Otitis : " + result_ototis.toFixed(2) 
+              + "Scabies : " + result_scabies.toFixed(2) +"<br>"
+              + "Rage : " + result_rage.toFixed(2) 
+              + "Distemper : " + result_distemper.toFixed(2) +"<br>"
+              + "Osteoarthritis : " + result_osteoarthritis.toFixed(2) ;
+              //+ "HIGHEST POSSIBLITIY : " + final_result ;*/
+
+
+  
+    document.getElementById("highestresult").innerHTML +=display_result/*+"<br>"+secondmax_disp*/;
+  // += "<center><b><p style='color:#00bd56'> "+x+" : "+ final_result.toFixed(2)+"%</p></b> <img style='height: 150px;border-radius: 5px;' src='"+z+"'><center><br>"+a+" "+b+". <a href='"+y+"'>Click here</a> to get tip to treat "+x+"."+c;
+
+       
+});
+
+
+
+const modal = document.querySelector(".modal");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".close-button");
+
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+        
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    trigger.addEventListener("click", toggleModal);
+   // closeButton.addEventListener("click", toggleModal);
+   // window.addEventListener("click", windowOnClick);
+
+  
+  
+    </script>
+
+    <!--CHATBOT-->
+  <script SameSite="None; Secure" src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+  <script>
+    var myLandbot = new Landbot.Livechat({
+      configUrl: 'https://chats.landbot.io/v3/H-1071975-ZGU0JJMGH37N8VJ4/index.json',
+    });
+  </script>
+
+
+</body>
+  
+</html>  

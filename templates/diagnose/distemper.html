@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DACT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+     
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/animate.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/jquery.timepicker.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/flaticon.css') }}">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  
+    <style>
+      .img{
+        height: 500px;
+        margin-top: 100px;
+        border-radius: 10px;
+      }
+    </style>
+
+  </head>
+  <body style="background-color: #f6f8fd;">
+
+   
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="{{ url_for('index') }}"><img style="border-radius: 50%; width:21%;"src="/static/images/logo.png">DACT</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto" >
+            <li class="nav-item"><a style="text-decoration: none; margin-top: -8px;" href="{{ url_for('index') }}"class="nav-link">Home</a></li>
+            <li class="nav-item"><a style="text-decoration: none; margin-top: -8px;" href="{{ url_for('predict') }}"class="nav-link">Recognize dog</a></li>
+            <li class="nav-item"><a style="text-decoration: none; margin-top: -8px;" href="{{ url_for('adopt') }}" class="nav-link">Adoption</a></li>
+            <li class="nav-item active"><a style="text-decoration: none; margin-top: -8px;" href="{{ url_for('diagnose') }}"class="nav-link">Diagnose</a></li>
+            <li class="nav-item"><a style="text-decoration: none; margin-top: -8px;"  href="{{ url_for('petcare') }}" class="nav-link">Care Tips</a></li>
+          </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+
+   
+
+   
+      <div class="container">
+        <div class="row d-flex no-gutters">
+
+          <div class="col-md-5 d-flex">
+            <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0" style="background-image:url(https://petairapy.com/wp-content/uploads/2020/06/Nasal-discharge-canine-distemper.jpg);">
+              <!--https://www.westernexterminator.com/blog/wp-content/uploads/2018/04/ThinkstockPhotos-545371420.jpg-->
+            </div>
+          </div>
+          <div style="margin-top:-30px;" class="col-md-7 pl-md-5 py-md-5">
+            <br>
+            <div class="heading-section pt-md-5">
+              <h2 class="mb-4">Distemper</h2>
+            </div>
+           Canine distemper is a contagious and serious disease caused by a virus that attacks the respiratory, gastrointestinal and nervous systems of puppies and dogs.
+
+The virus can also be found in wildlife such as foxes, wolves, coyotes, raccoons, skunks, mink and ferrets and has been reported in lions, tigers, leopards and other wild cats as well as seals.
+            <br><br>
+
+         
+              <div class="col-md-20 services-2 w-100 d-flex">
+                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-stethoscope"></span></div>
+                <div class="text pl-3">
+                  <h4>Care Advices</h4>
+                  <p>1. A series of vaccinations is administered to puppies to increase the likelihood of building immunity when the immune system has not yet fully matured.<br>
+                    2. Avoid gaps in the immunization schedule and make sure distemper vaccinations are up to date.<br>
+                    3. Avoid contact with infected animals and wildlife<br>
+                    4. Use caution when socializing puppies or unvaccinated dogs at parks, puppy classes, obedience classes, doggy day care and other places where dogs can congregate.<br>
+                    5. Pet ferrets should be vaccinated against canine distemper using a USDA-approved ferret vaccine.<br>
+                
+
+                  </p>
+                </div>
+              </div>
+          </div>
+        
+      </div>
+    </section>
+   
+  
+		
+
+    
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+  <script SameSite="None; Secure" src="https://static.landbot.io/landbot-3/landbot-3.0.0.js"></script>
+  <script>
+    var myLandbot = new Landbot.Livechat({
+      configUrl: 'https://chats.landbot.io/v3/H-1071975-ZGU0JJMGH37N8VJ4/index.json',
+    });
+  </script>
+
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery-migrate-3.0.1.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.easing.1.3.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.stellar.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.animateNumber.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap-datepicker.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.timepicker.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/scrollax.min.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/main.js')}}"></script>
+
+
+    
+  </body>
+</html>
+
+
+
+
