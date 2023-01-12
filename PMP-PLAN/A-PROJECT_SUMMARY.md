@@ -21,4 +21,4 @@ A dog breed classification system is a machine learning based system that classi
 + To allow users to find the breed of dogs preferred based on the group of dogs
 
 <br><br><br>
-##### Next:
+##### Next: [Project Planning](B-PROJECT_PLANNING.md)
