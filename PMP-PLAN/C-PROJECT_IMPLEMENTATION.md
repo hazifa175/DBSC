@@ -14,3 +14,7 @@
 | TOTAL | $51,000 | Estimated |
 
 ### Milestone Chart
+<img src="asset/Milestone .jpg" width="100%">
+
+<br><br><br>
+##### Next: [Project Execution](D-PROJECT_EXECUTION.md)
