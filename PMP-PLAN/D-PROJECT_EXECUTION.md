@@ -27,3 +27,6 @@
 
 + Classification result
 <img src="asset/result.png" width="100%">
+
+<br><br><br>
+##### Next: [Project Closing](E-PROJECT_CLOSING.md)
